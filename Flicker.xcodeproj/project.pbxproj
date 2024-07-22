@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D2DE67C2C4E3C7B00772FC9 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE67B2C4E3C7B00772FC9 /* DataExt.swift */; };
+		5D2DE6802C4E3CF800772FC9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE67F2C4E3CF800772FC9 /* CameraView.swift */; };
+		5D2DE6842C4E3DF000772FC9 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6832C4E3DF000772FC9 /* FavoriteView.swift */; };
+		5D2DE68B2C4E3E9200772FC9 /* PostItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE68A2C4E3E9200772FC9 /* PostItem.swift */; };
+		5D2DE68D2C4E3EA600772FC9 /* MainScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE68C2C4E3EA600772FC9 /* MainScreenPresenter.swift */; };
+		5D2DE68F2C4E3EB600772FC9 /* MainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE68E2C4E3EB600772FC9 /* MainScreenView.swift */; };
+		5D2DE6912C4E3EC300772FC9 /* MainPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6902C4E3EC300772FC9 /* MainPostCell.swift */; };
+		5D2DE6932C4E3ED500772FC9 /* MainPostHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6922C4E3ED500772FC9 /* MainPostHeader.swift */; };
+		5D2DE69A2C4E3F3700772FC9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */; };
+		5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */; };
+		5D2DE69F2C4E419100772FC9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2DE69E2C4E419100772FC9 /* KeychainAccess */; };
 		5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */; };
 		5D6204482C2A98DE00FD5F6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204472C2A98DE00FD5F6F /* SceneDelegate.swift */; };
 		5D62044F2C2A98DF00FD5F6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D62044E2C2A98DF00FD5F6F /* Assets.xcassets */; };
@@ -16,11 +27,20 @@
 		5D6204652C2AD28E00FD5F6F /* PasscodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204642C2AD28E00FD5F6F /* PasscodePresenter.swift */; };
 		5D658F7C2C2E99B20033A2C5 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D658F7B2C2E99B20033A2C5 /* UIViewExt.swift */; };
 		5D6DF6992C3287640014BEC2 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DF6982C3287640014BEC2 /* KeychainManager.swift */; };
-		5D6DF69C2C32880C0014BEC2 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5D6DF69B2C32880C0014BEC2 /* KeychainAccess */; };
 		5D6DF69E2C32D5F60014BEC2 /* StringProtocolExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DF69D2C32D5F60014BEC2 /* StringProtocolExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D2DE67B2C4E3C7B00772FC9 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
+		5D2DE67F2C4E3CF800772FC9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		5D2DE6832C4E3DF000772FC9 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		5D2DE68A2C4E3E9200772FC9 /* PostItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostItem.swift; sourceTree = "<group>"; };
+		5D2DE68C2C4E3EA600772FC9 /* MainScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenPresenter.swift; sourceTree = "<group>"; };
+		5D2DE68E2C4E3EB600772FC9 /* MainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenView.swift; sourceTree = "<group>"; };
+		5D2DE6902C4E3EC300772FC9 /* MainPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCell.swift; sourceTree = "<group>"; };
+		5D2DE6922C4E3ED500772FC9 /* MainPostHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostHeader.swift; sourceTree = "<group>"; };
+		5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewPresenter.swift; sourceTree = "<group>"; };
 		5D6204422C2A98DE00FD5F6F /* Flicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D6204472C2A98DE00FD5F6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -40,13 +60,106 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5D6DF69C2C32880C0014BEC2 /* KeychainAccess in Frameworks */,
+				5D2DE69F2C4E419100772FC9 /* KeychainAccess in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D2DE67D2C4E3CCF00772FC9 /* CameraModule */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE67E2C4E3CE100772FC9 /* View */,
+			);
+			path = CameraModule;
+			sourceTree = "<group>";
+		};
+		5D2DE67E2C4E3CE100772FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE67F2C4E3CF800772FC9 /* CameraView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2DE6812C4E3DD600772FC9 /* FavoriteModule */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE6822C4E3DE000772FC9 /* View */,
+			);
+			path = FavoriteModule;
+			sourceTree = "<group>";
+		};
+		5D2DE6822C4E3DE000772FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE6832C4E3DF000772FC9 /* FavoriteView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2DE6862C4E3E5E00772FC9 /* MainScreenModule */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE6892C4E3E7B00772FC9 /* Model */,
+				5D2DE6882C4E3E6F00772FC9 /* Presenter */,
+				5D2DE6872C4E3E6A00772FC9 /* View */,
+			);
+			path = MainScreenModule;
+			sourceTree = "<group>";
+		};
+		5D2DE6872C4E3E6A00772FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE68E2C4E3EB600772FC9 /* MainScreenView.swift */,
+				5D2DE6902C4E3EC300772FC9 /* MainPostCell.swift */,
+				5D2DE6922C4E3ED500772FC9 /* MainPostHeader.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D2DE6882C4E3E6F00772FC9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE68C2C4E3EA600772FC9 /* MainScreenPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5D2DE6892C4E3E7B00772FC9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE68A2C4E3E9200772FC9 /* PostItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D2DE6942C4E3EDF00772FC9 /* TabBarModule */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE6962C4E3EEF00772FC9 /* View */,
+				5D2DE6952C4E3EE900772FC9 /* Presenter */,
+			);
+			path = TabBarModule;
+			sourceTree = "<group>";
+		};
+		5D2DE6952C4E3EE900772FC9 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5D2DE6962C4E3EEF00772FC9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5D6204392C2A98DE00FD5F6F = {
 			isa = PBXGroup;
 			children = (
@@ -81,7 +194,11 @@
 		5D6204592C2A992C00FD5F6F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				5D2DE67D2C4E3CCF00772FC9 /* CameraModule */,
+				5D2DE6812C4E3DD600772FC9 /* FavoriteModule */,
 				5D62045A2C2A9AD100FD5F6F /* PasscodeModule */,
+				5D2DE6862C4E3E5E00772FC9 /* MainScreenModule */,
+				5D2DE6942C4E3EDF00772FC9 /* TabBarModule */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -141,6 +258,7 @@
 			children = (
 				5D658F7B2C2E99B20033A2C5 /* UIViewExt.swift */,
 				5D6DF69D2C32D5F60014BEC2 /* StringProtocolExt.swift */,
+				5D2DE67B2C4E3C7B00772FC9 /* DataExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -170,7 +288,7 @@
 			);
 			name = Flicker;
 			packageProductDependencies = (
-				5D6DF69B2C32880C0014BEC2 /* KeychainAccess */,
+				5D2DE69E2C4E419100772FC9 /* KeychainAccess */,
 			);
 			productName = Flicker;
 			productReference = 5D6204422C2A98DE00FD5F6F /* Flicker.app */;
@@ -201,7 +319,7 @@
 			);
 			mainGroup = 5D6204392C2A98DE00FD5F6F;
 			packageReferences = (
-				5D6DF69A2C32880C0014BEC2 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				5D2DE69D2C4E419100772FC9 /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = 5D6204432C2A98DE00FD5F6F /* Products */;
 			projectDirPath = "";
@@ -229,14 +347,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D2DE69A2C4E3F3700772FC9 /* TabBarView.swift in Sources */,
 				5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */,
 				5D62045E2C2A9B1800FD5F6F /* PasscodeView.swift in Sources */,
 				5D6DF6992C3287640014BEC2 /* KeychainManager.swift in Sources */,
+				5D2DE6932C4E3ED500772FC9 /* MainPostHeader.swift in Sources */,
+				5D2DE6802C4E3CF800772FC9 /* CameraView.swift in Sources */,
 				5D6204482C2A98DE00FD5F6F /* SceneDelegate.swift in Sources */,
+				5D2DE6842C4E3DF000772FC9 /* FavoriteView.swift in Sources */,
+				5D2DE68B2C4E3E9200772FC9 /* PostItem.swift in Sources */,
+				5D2DE67C2C4E3C7B00772FC9 /* DataExt.swift in Sources */,
 				5D6DF69E2C32D5F60014BEC2 /* StringProtocolExt.swift in Sources */,
+				5D2DE68F2C4E3EB600772FC9 /* MainScreenView.swift in Sources */,
 				5D6204622C2A9B8800FD5F6F /* Builder.swift in Sources */,
 				5D6204652C2AD28E00FD5F6F /* PasscodePresenter.swift in Sources */,
+				5D2DE68D2C4E3EA600772FC9 /* MainScreenPresenter.swift in Sources */,
+				5D2DE6912C4E3EC300772FC9 /* MainPostCell.swift in Sources */,
 				5D658F7C2C2E99B20033A2C5 /* UIViewExt.swift in Sources */,
+				5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,9 +581,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		5D6DF69A2C32880C0014BEC2 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		5D2DE69D2C4E419100772FC9 /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess?ysclid=lywnzj56xd37590118";
 			requirement = {
 				branch = master;
 				kind = branch;
@@ -464,9 +592,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		5D6DF69B2C32880C0014BEC2 /* KeychainAccess */ = {
+		5D2DE69E2C4E419100772FC9 /* KeychainAccess */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 5D6DF69A2C32880C0014BEC2 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			package = 5D2DE69D2C4E419100772FC9 /* XCRemoteSwiftPackageReference "KeychainAccess" */;
 			productName = KeychainAccess;
 		};
 /* End XCSwiftPackageProductDependency section */
