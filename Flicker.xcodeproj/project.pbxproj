@@ -18,6 +18,7 @@
 		5D2DE69A2C4E3F3700772FC9 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */; };
 		5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */; };
 		5D2DE69F2C4E419100772FC9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2DE69E2C4E419100772FC9 /* KeychainAccess */; };
+		5D2DE6A12C4E8DA600772FC9 /* UIAplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */; };
 		5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */; };
 		5D6204482C2A98DE00FD5F6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204472C2A98DE00FD5F6F /* SceneDelegate.swift */; };
 		5D62044F2C2A98DF00FD5F6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D62044E2C2A98DF00FD5F6F /* Assets.xcassets */; };
@@ -28,6 +29,8 @@
 		5D658F7C2C2E99B20033A2C5 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D658F7B2C2E99B20033A2C5 /* UIViewExt.swift */; };
 		5D6DF6992C3287640014BEC2 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DF6982C3287640014BEC2 /* KeychainManager.swift */; };
 		5D6DF69E2C32D5F60014BEC2 /* StringProtocolExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6DF69D2C32D5F60014BEC2 /* StringProtocolExt.swift */; };
+		5D75DB7E2C50C9A400C483EC /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D75DB7D2C50C9A400C483EC /* TagCollectionView.swift */; };
+		5D75DB802C50CF7900C483EC /* TagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D75DB7F2C50CF7900C483EC /* TagCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,7 @@
 		5D2DE6922C4E3ED500772FC9 /* MainPostHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostHeader.swift; sourceTree = "<group>"; };
 		5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewPresenter.swift; sourceTree = "<group>"; };
+		5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAplicationExt.swift; sourceTree = "<group>"; };
 		5D6204422C2A98DE00FD5F6F /* Flicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D6204472C2A98DE00FD5F6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +57,8 @@
 		5D658F7B2C2E99B20033A2C5 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		5D6DF6982C3287640014BEC2 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		5D6DF69D2C32D5F60014BEC2 /* StringProtocolExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringProtocolExt.swift; sourceTree = "<group>"; };
+		5D75DB7D2C50C9A400C483EC /* TagCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		5D75DB7F2C50CF7900C483EC /* TagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +185,7 @@
 		5D6204442C2A98DE00FD5F6F /* Flicker */ = {
 			isa = PBXGroup;
 			children = (
+				5D75DB7B2C50C97800C483EC /* Helpers */,
 				5D6DF6972C32873A0014BEC2 /* KeychainManager */,
 				5D658F7A2C2E99960033A2C5 /* Extension */,
 				5D6204602C2A9B4F00FD5F6F /* Builder */,
@@ -259,6 +266,7 @@
 				5D658F7B2C2E99B20033A2C5 /* UIViewExt.swift */,
 				5D6DF69D2C32D5F60014BEC2 /* StringProtocolExt.swift */,
 				5D2DE67B2C4E3C7B00772FC9 /* DataExt.swift */,
+				5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -269,6 +277,23 @@
 				5D6DF6982C3287640014BEC2 /* KeychainManager.swift */,
 			);
 			path = KeychainManager;
+			sourceTree = "<group>";
+		};
+		5D75DB7B2C50C97800C483EC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5D75DB7C2C50C98800C483EC /* TagCollection */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5D75DB7C2C50C98800C483EC /* TagCollection */ = {
+			isa = PBXGroup;
+			children = (
+				5D75DB7D2C50C9A400C483EC /* TagCollectionView.swift */,
+				5D75DB7F2C50CF7900C483EC /* TagCollectionCell.swift */,
+			);
+			path = TagCollection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -358,13 +383,16 @@
 				5D2DE68B2C4E3E9200772FC9 /* PostItem.swift in Sources */,
 				5D2DE67C2C4E3C7B00772FC9 /* DataExt.swift in Sources */,
 				5D6DF69E2C32D5F60014BEC2 /* StringProtocolExt.swift in Sources */,
+				5D75DB802C50CF7900C483EC /* TagCollectionCell.swift in Sources */,
 				5D2DE68F2C4E3EB600772FC9 /* MainScreenView.swift in Sources */,
 				5D6204622C2A9B8800FD5F6F /* Builder.swift in Sources */,
 				5D6204652C2AD28E00FD5F6F /* PasscodePresenter.swift in Sources */,
 				5D2DE68D2C4E3EA600772FC9 /* MainScreenPresenter.swift in Sources */,
 				5D2DE6912C4E3EC300772FC9 /* MainPostCell.swift in Sources */,
 				5D658F7C2C2E99B20033A2C5 /* UIViewExt.swift in Sources */,
+				5D75DB7E2C50C9A400C483EC /* TagCollectionView.swift in Sources */,
 				5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */,
+				5D2DE6A12C4E8DA600772FC9 /* UIAplicationExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

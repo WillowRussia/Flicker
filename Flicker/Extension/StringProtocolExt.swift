@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//Переводить строку в масив чисел
 extension StringProtocol {
     var digits: [Int] { compactMap(\.wholeNumberValue) }
 }

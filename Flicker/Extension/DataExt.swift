@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+//Преобразует дату в слова
 extension Date{
     func getDateDiference() -> String {
         let curentDateInterval = Int(Date().timeIntervalSinceReferenceDate)
@@ -15,7 +15,7 @@ extension Date{
 
         switch dateDifferencesDate {
         case 0:
-            return "сегодня"
+            return "Cегодня"
         case 1:
             return "Вчера"
         case 2...4:
