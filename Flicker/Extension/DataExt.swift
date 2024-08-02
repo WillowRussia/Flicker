@@ -6,8 +6,9 @@
 //
 
 import UIKit
-//Преобразует дату в слова
+
 extension Date{
+    //Преобразует дату в слова
     func getDateDiference() -> String {
         let curentDateInterval = Int(Date().timeIntervalSinceReferenceDate)
         let dateDifferences = Double(curentDateInterval - Int(self.timeIntervalSinceReferenceDate))
@@ -23,5 +24,12 @@ extension Date{
         default:
             return "\(dateDifferencesDate) дней назад"
         }
+    }
+    
+    func formatDate() -> String {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "ru_RU") // Устанавливаем локализацию
+        formatter.dateFormat = "dd LLL yyyy"//LLL - сокращено, LLLL - полностью
+        return formatter.string(from: self)
     }
 }

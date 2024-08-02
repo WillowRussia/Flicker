@@ -41,6 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
    
 extension SceneDelegate: SceneDelegateProtocol{
+    // Меняет основной экран
     func startMainScreen() {
         self.window?.rootViewController = Builder.createTabBarController()
     }

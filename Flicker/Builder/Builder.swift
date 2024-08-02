@@ -32,7 +32,7 @@ class Builder: BuilderProtocol{
         return passcodeView
     }
 
-
+    //Созднание TabBar для навигации
     static func createTabBarController() -> UIViewController {
         let tabBarView = TabBarView()
         let presenter = TabBarViewPresenter(view: tabBarView)
@@ -41,7 +41,8 @@ class Builder: BuilderProtocol{
         return tabBarView
 
     }
-
+    
+    // Создание главного экрана
     static func createMainScreenController() -> UIViewController {
         let mainView = MainScreenView()
         let presenter = MainScreenPresenter(view: mainView)
@@ -50,17 +51,18 @@ class Builder: BuilderProtocol{
         return mainView
     }
 
-
+    // Созднание экрана для добавления фотографий
     static func createCameraScreenController() -> UIViewController {
         let cameraView = CameraView()
 
         return cameraView
     }
 
-
+    //Создание экрана избраных
     static func createFavoriteScreenController() -> UIViewController {
         let favoriteView = FavotiteView()
-
-        return favoriteView
+        let presenter = FavoriteViewPresenter(view: favoriteView)
+        favoriteView.presenter = presenter
+        return UINavigationController(rootViewController: favoriteView) //favoriteView
     }
 }

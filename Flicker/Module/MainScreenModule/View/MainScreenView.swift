@@ -46,7 +46,7 @@ class MainScreenView: UIViewController {
         let layout = $0.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: view.frame.width - 60, height: view.frame.width - 60) // Размер ячеки
         layout.scrollDirection = .vertical // Ориентация
-        layout.minimumLineSpacing = 30 //расстояние между ячейками
+        layout.minimumLineSpacing = 30 //отступ между ячейками по бокам
         layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 40, right: 0) // Отступы между секциями
 
         $0.contentInset.top = 120 // Вставка для снижения колекции

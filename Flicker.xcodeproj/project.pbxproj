@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D08FD232C579022004806EE /* FavoriteViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08FD222C579022004806EE /* FavoriteViewPresenter.swift */; };
+		5D08FD252C579E37004806EE /* FavoriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D08FD242C579E37004806EE /* FavoriteCell.swift */; };
 		5D2DE67C2C4E3C7B00772FC9 /* DataExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE67B2C4E3C7B00772FC9 /* DataExt.swift */; };
 		5D2DE6802C4E3CF800772FC9 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE67F2C4E3CF800772FC9 /* CameraView.swift */; };
 		5D2DE6842C4E3DF000772FC9 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6832C4E3DF000772FC9 /* FavoriteView.swift */; };
@@ -34,6 +36,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D08FD222C579022004806EE /* FavoriteViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewPresenter.swift; sourceTree = "<group>"; };
+		5D08FD242C579E37004806EE /* FavoriteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCell.swift; sourceTree = "<group>"; };
 		5D2DE67B2C4E3C7B00772FC9 /* DataExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExt.swift; sourceTree = "<group>"; };
 		5D2DE67F2C4E3CF800772FC9 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		5D2DE6832C4E3DF000772FC9 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
@@ -73,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5D08FD212C579003004806EE /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5D08FD222C579022004806EE /* FavoriteViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		5D2DE67D2C4E3CCF00772FC9 /* CameraModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +104,7 @@
 		5D2DE6812C4E3DD600772FC9 /* FavoriteModule */ = {
 			isa = PBXGroup;
 			children = (
+				5D08FD212C579003004806EE /* Presenter */,
 				5D2DE6822C4E3DE000772FC9 /* View */,
 			);
 			path = FavoriteModule;
@@ -101,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				5D2DE6832C4E3DF000772FC9 /* FavoriteView.swift */,
+				5D08FD242C579E37004806EE /* FavoriteCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -373,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D2DE69A2C4E3F3700772FC9 /* TabBarView.swift in Sources */,
+				5D08FD232C579022004806EE /* FavoriteViewPresenter.swift in Sources */,
 				5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */,
 				5D62045E2C2A9B1800FD5F6F /* PasscodeView.swift in Sources */,
 				5D6DF6992C3287640014BEC2 /* KeychainManager.swift in Sources */,
@@ -392,6 +407,7 @@
 				5D658F7C2C2E99B20033A2C5 /* UIViewExt.swift in Sources */,
 				5D75DB7E2C50C9A400C483EC /* TagCollectionView.swift in Sources */,
 				5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */,
+				5D08FD252C579E37004806EE /* FavoriteCell.swift in Sources */,
 				5D2DE6A12C4E8DA600772FC9 /* UIAplicationExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
