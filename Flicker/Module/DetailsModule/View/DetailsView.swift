@@ -12,6 +12,7 @@ protocol DetailsViewProtocol: AnyObject {
 class DetailsView: UIViewController {
     
     var presenter: DetailsViewPresenterProtocol!
+    var photoView: PhotoView!
     
     private var menuViewHeight = UIApplication.topSafeArea + 50// Высота включающая безопасную зону
     
@@ -36,6 +37,7 @@ class DetailsView: UIViewController {
         $0.backgroundColor = .none
         $0.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 100, right: 0) // Определяет отступы вокруг содержимого UIScrollView
         $0.dataSource = self
+        $0.delegate = self
         $0.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         $0.register(TagCollectionCell.self, forCellWithReuseIdentifier: TagCollectionCell.reuseId)
         $0.register(DetailsPhotoCell.self, forCellWithReuseIdentifier: DetailsPhotoCell.reuseId)
@@ -47,8 +49,10 @@ class DetailsView: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = false // Уменшили заголовок
-        //navigationItem.setHidesBackButton(true, animated: true) //Скрываем кнопку навигации
+        navigationItem.setHidesBackButton(true, animated: true) //Скрываем кнопку навигации
         navigationController?.navigationBar.isHidden  = true //Убераем навигацию(что-то типо пленки это)
+        
+        NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide" : true]) // Делаем модификацию для скрытия tabBar
     }
     private func setupPageHeader() {
         let headerView = navigationHeader.getNavigationHeader(type: .back)
@@ -223,6 +227,28 @@ extension DetailsView: UICollectionViewDataSource {
     }
     
     
+}
+
+extension DetailsView: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { // Сообщает делегату, что выбран элемент
+        if indexPath.section == 0{
+            let itemPhoto = presenter.item.photos[indexPath.item]
+            photoView = Builder.createPhotoViewController(image: UIImage (named: itemPhoto)) as? PhotoView
+            
+            addChild(photoView) //Добавляет указанный контроллер в качестве дочернего элемента текущего контроллера
+            photoView.view.frame = view.bounds
+            view.addSubview(photoView.view) // Добавляет представление в иерархию
+            photoView.didMove(toParent: self)// Уведомляет конторлер о его добавлении
+            
+            photoView.comletion = { [weak self] in
+                self?.photoView.willMove(toParent: nil) // Уведомляет конторлер о его удалении
+                self?.photoView.view.removeFromSuperview() // Убирает представление из иерархию
+                self?.photoView.removeFromParent() // Удаляет контроллер  из родительского
+                self?.photoView = nil
+            }
+            
+        }
+    }
 }
 
 extension DetailsView: DetailsViewProtocol {

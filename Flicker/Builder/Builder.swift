@@ -66,10 +66,19 @@ class Builder: BuilderProtocol{
         return UINavigationController(rootViewController: favoriteView) //favoriteView
     }
     
+    //Создание экрана подробностей о посте
     static func createDetailsController(item: PostItem) -> UIViewController {
         let detailsView = DetailsView()
         let presenter = DetailsViewPresenter(view: detailsView, item: item)
         detailsView.presenter = presenter
         return detailsView
+    }
+    
+    // Создание экрана зума фотографии
+    static func createPhotoViewController(image: UIImage?) -> UIViewController {
+        let photoView = PhotoView()
+        let presenter = PhotoViewPresenter(view: photoView, image: image)
+        photoView.presenter = presenter
+        return photoView
     }
 }

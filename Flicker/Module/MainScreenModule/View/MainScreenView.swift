@@ -71,6 +71,10 @@ class MainScreenView: UIViewController {
         topInsets = collectionView.adjustedContentInset.top //Растояние от безопасной области + плюс вставки
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide" : false]) // Делаем модификацию для показа tabBar
+    }
+    
 
 }
 
