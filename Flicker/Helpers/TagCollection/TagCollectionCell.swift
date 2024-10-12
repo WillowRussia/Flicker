@@ -6,8 +6,12 @@
 //
 
 import UIKit
+protocol CollectionViewCellProtocol {
+    static var reuseId: String { get }
+    init(frame: CGRect)
+}
 
-class TagCollectionCell: UICollectionViewCell {
+class TagCollectionCell: UICollectionViewCell, CollectionViewCellProtocol {
     static let reuseId = "TagCollectionCell"
     
     private lazy var tagView: UIView = {
@@ -26,7 +30,7 @@ class TagCollectionCell: UICollectionViewCell {
         }
     }(UILabel())
     
-    override init(frame: CGRect) {
+    required override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(tagView)
         setConstraint()
@@ -45,7 +49,7 @@ class TagCollectionCell: UICollectionViewCell {
             tagLabel.trailingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: -20)])
     }
     
-    func cellConfigure(tagText: String) { // Настройка текста
+    func configureCell(tagText: String) { // Настройка текста
         self.tagLabel.text = tagText
     }
     

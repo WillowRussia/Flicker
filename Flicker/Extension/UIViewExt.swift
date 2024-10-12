@@ -10,7 +10,7 @@ import UIKit
 extension UIView{
     // Метод для настройки констрентов
     static func configure<T: UIView>(view: T, block:@escaping (T) -> ())-> T{
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false//Это свойство автоматически создает ограничения для view, поэтому нам надо ставить его в значение false, когда мы хотим сами посатвить ограничения
         block(view)
         return view
     }

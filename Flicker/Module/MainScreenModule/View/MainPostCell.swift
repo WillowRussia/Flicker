@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainPostCell: UICollectionViewCell {
+class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
 
     static let reuseId = "MainPostCell"
     
@@ -42,7 +42,7 @@ class MainPostCell: UICollectionViewCell {
         return $0
     }(UIButton(primaryAction: nil))
     
-    override init(frame: CGRect) {
+    required override init(frame: CGRect) {
         super.init(frame: frame)
         contentViewConfig()
     }
@@ -117,7 +117,7 @@ extension MainPostCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionCell.reuseId, for: indexPath) as! TagCollectionCell
         let tag = tags[indexPath.item] //item - коллекция, row - ячеки в таблице
-        cell.cellConfigure(tagText: tag)
+        cell.configureCell(tagText: tag)
         return cell
     }
     

@@ -117,7 +117,7 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     // Отлавливает прокрутку колекции
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let menuTopPosition = scrollView.contentOffset.y + topInsets
+        let menuTopPosition = scrollView.contentOffset.y + topInsets // contentOffset - определяет текущую позицию содержимого UIScrollView внутри его рамок
         
         // Отодвигает врехнее меню и умсенбшает размер текста
         if menuTopPosition < 40, menuTopPosition > 0 {

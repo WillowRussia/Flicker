@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 class PostDate: Identifiable{
     let id = UUID().uuidString
@@ -46,19 +47,21 @@ class PostItem: Identifiable{
     let description: String?
     let isFavorite: Bool
     let date: Date
+    let location: CLLocationCoordinate2D?
 
-    init(photos: [String], comments: [Commet]?, tags: [String]?, description: String?,  isFavorite: Bool = false, date: Date) {
+    init(photos: [String], comments: [Commet]?, tags: [String]?, description: String?,  isFavorite: Bool = false, date: Date, location: CLLocationCoordinate2D? = nil) {
         self.photos = photos
         self.comments = comments
         self.tags = tags
         self.description = description
         self.date = date
         self.isFavorite = isFavorite
+        self.location = location
     }
     
     static func getMockItems() -> [PostItem] {
         [
-            PostItem(photos: ["img1", "img2"], comments: nil, tags: ["Дом", "Nature"], description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit", isFavorite: true, date: Date()),
+            PostItem(photos: ["img1", "img2"], comments: [Commet(date: Date(), comment: "Классный был день")], tags: ["Дом", "Nature"], description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit", isFavorite: true, date: Date()),
          
          PostItem(photos: ["img2", "img3"], comments: nil, tags: ["Дом", "Nature"], description: "Lorem ipsum dolor sit amet, consectetur adipisicing elit", isFavorite: true, date: Date()),
 

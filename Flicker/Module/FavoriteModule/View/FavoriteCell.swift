@@ -7,14 +7,14 @@
 
 import UIKit
 
-class FavoriteCell: UICollectionViewCell {
+class FavoriteCell: UICollectionViewCell, CollectionViewCellProtocol {
     static let reuseId = "FavoriteCell"
     
     lazy var postImage: UIImageView = {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
         return $0
-    }(UIImageView(frame: bounds))
+    }(UIImageView(frame: bounds ))
     
     lazy var removeInFavoriteButton: UIButton = {
         $0.frame = CGRect(x: bounds.width-43, y: 21, width: 25, height: 27  )
@@ -38,7 +38,7 @@ class FavoriteCell: UICollectionViewCell {
         return $0
     }(UILabel())
     
-    override init(frame: CGRect) {
+    required override init(frame: CGRect) {
         super.init(frame: frame)
         
         [postImage, removeInFavoriteButton, dateView].forEach {
@@ -51,7 +51,7 @@ class FavoriteCell: UICollectionViewCell {
     
     func configureCell(item: PostItem) {
         postImage.image = UIImage(named: item.photos.first!)
-        dateLabel.text = item.date.formatDate()
+        dateLabel.text = item.date.formatDate(formatType: .full)
     }
     
     required init?(coder: NSCoder) {

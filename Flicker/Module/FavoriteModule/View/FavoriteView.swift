@@ -49,6 +49,8 @@ class FavotiteView: UIViewController {
         title = "Избранное"
         navigationController?.navigationBar.prefersLargeTitles = true // Поменяли вид тайтла
         navigationController?.navigationBar.barTintColor = .appMain // Настройка фона
+        navigationController?.navigationBar.isHidden = false
+        
         navigationController?.navigationBar.largeTitleTextAttributes = [
             NSAttributedString.Key.foregroundColor : UIColor.white // Цвет в большом
         ]
@@ -85,5 +87,10 @@ extension FavotiteView: UICollectionViewDataSource {
 }
 
 extension FavotiteView: UICollectionViewDelegate {
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { // Этот метод срабатывает когда нажимаем на конкретную ячейку
+        guard let item = presenter.post?[indexPath.item] else {return}
+        
+        let detailsView = Builder.createDetailsController(item: item)
+        navigationController?.pushViewController(detailsView, animated: true)
+    }
 }

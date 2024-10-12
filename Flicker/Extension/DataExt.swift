@@ -26,10 +26,26 @@ extension Date{
         }
     }
     
-    func formatDate() -> String {
+    //Расшифровывает дату в слова
+    func formatDate(formatType: DateFormatType) -> String {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ru_RU") // Устанавливаем локализацию
-        formatter.dateFormat = "dd LLL yyyy"//LLL - сокращено, LLLL - полностью
+        
+        switch formatType {
+        case .full:
+            formatter.dateFormat = "dd MMMM yyyy"
+        case .onlyDate:
+            formatter.dateFormat = "dd MMMM"
+        case .onlyYear:
+            formatter.dateFormat = "yyyy"
+        }
+        
+        //LLL - сокращено без склонений, LLLL - полностью без склонений
+        //MMM - сокращено cо склонениями, MMMM - полностью со склонениями
         return formatter.string(from: self)
     }
+}
+
+enum DateFormatType {
+    case full, onlyDate, onlyYear
 }
