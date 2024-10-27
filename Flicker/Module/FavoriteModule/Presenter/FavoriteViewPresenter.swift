@@ -21,7 +21,7 @@ class FavoriteViewPresenter: FavoriteViewPresenterProtocol {
     
     private weak var view: FavotiteViewProtocol?
     
-    required init(view: any FavotiteViewProtocol) {
+    required init(view: FavotiteViewProtocol) {
         self.view = view
         getPost()
     }

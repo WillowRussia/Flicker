@@ -20,27 +20,12 @@ class TabBarView: UITabBarController {
         return $0
     }(UIView(frame: CGRect(x: 0, y: view.frame.height - 100, width: view.frame.width, height: 60)))
 
-    @objc func hideTabBar(sender: Notification) { // Функция для скрытия tabBar
-        
-        let isHide = sender.userInfo?["isHide"] as! Bool
-        
-        UIView.animate(withDuration: 0.2) { [weak self] in
-            
-            guard let self = self else { return }
-            
-            if isHide {
-                self.tabBarView.frame.origin.y = self.view.frame.height
-            }
-            else {
-                self.tabBarView.frame.origin.y = view.frame.height - 100
-            }
-        }
-    }
         
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(hideTabBar), name: .hideTabBar, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToMain), name: .goToMain, object: nil)
 
         tabs.enumerated().forEach{
             let offsets: [Double] = [-100, 0, 100]
@@ -95,5 +80,31 @@ extension TabBarView {
 extension TabBarView: TabBarViewProtocol{
     func setControllers(controllers: [UIViewController]) {
         setViewControllers(controllers, animated: true)
+    }
+}
+//MARK: @objc metods
+extension TabBarView {
+    
+    @objc func goToMain() { // Функция для переключения на главный экран
+        
+        self.selectedIndex = 0
+        
+    }
+    
+    @objc func hideTabBar(sender: Notification) { // Функция для скрытия tabBar
+        
+        let isHide = sender.userInfo?["isHide"] as! Bool
+        
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            
+            guard let self = self else { return }
+            
+            if isHide {
+                self.tabBarView.frame.origin.y = self.view.frame.height
+            }
+            else {
+                self.tabBarView.frame.origin.y = view.frame.height - 100
+            }
+        }
     }
 }

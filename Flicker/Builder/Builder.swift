@@ -54,8 +54,10 @@ class Builder: BuilderProtocol{
     // Созднание экрана для добавления фотографий
     static func createCameraScreenController() -> UIViewController {
         let cameraView = CameraView()
-
-        return cameraView
+        let cameraService = CameraService()
+        let presenter = CameraViewPresenter(view: cameraView, cameraService: cameraService)
+        cameraView.presenter = presenter
+        return UIImagePickerController(rootViewController: cameraView) // Контроллер выбора изображений
     }
 
     //Создание экрана избраных
@@ -63,7 +65,7 @@ class Builder: BuilderProtocol{
         let favoriteView = FavotiteView()
         let presenter = FavoriteViewPresenter(view: favoriteView)
         favoriteView.presenter = presenter
-        return UINavigationController(rootViewController: favoriteView) //favoriteView
+        return UINavigationController(rootViewController: favoriteView) //Назначение контроллера навигации
     }
     
     //Создание экрана подробностей о посте

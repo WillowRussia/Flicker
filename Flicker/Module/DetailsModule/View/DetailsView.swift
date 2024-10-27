@@ -209,8 +209,8 @@ extension DetailsView: UICollectionViewDataSource {
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsAddCommentCell.reuseId, for: indexPath) as! DetailsAddCommentCell
-            cell.completion = { [weak self] comment in
-                guard let self = self else { return }
+            cell.completion = { /*[weak self]*/ comment in
+//                guard let self = self else { return }
                 print (comment)
             }
             return cell
