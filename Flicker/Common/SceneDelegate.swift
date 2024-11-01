@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = Builder.createTabBarController()//Builder.getPasscodeController(passcodeState: checkIssetPasscode(), sceneDelegate: self)
+        window?.rootViewController = Builder.getPasscodeController(passcodeState: checkIssetPasscode(), sceneDelegate: self)
         window?.makeKeyAndVisible() //Устанавливаем контролер ключевым
     }
     

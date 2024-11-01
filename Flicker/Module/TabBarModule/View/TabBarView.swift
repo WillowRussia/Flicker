@@ -37,9 +37,7 @@ class TabBarView: UITabBarController {
         view.addSubview(tabBarView)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        selectedIndex = 2
-    }    
+    
     
     
     lazy var selecteItem = UIAction { [weak self] sender in

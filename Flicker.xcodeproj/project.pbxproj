@@ -23,6 +23,8 @@
 		5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */; };
 		5D2DE69F2C4E419100772FC9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2DE69E2C4E419100772FC9 /* KeychainAccess */; };
 		5D2DE6A12C4E8DA600772FC9 /* UIAplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */; };
+		5D5CAE5F2CD3FB97009F2E36 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CAE5E2CD3FB97009F2E36 /* AddPostView.swift */; };
+		5D5CAE612CD3FBDF009F2E36 /* AddPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CAE602CD3FBDF009F2E36 /* AddPostPresenter.swift */; };
 		5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */; };
 		5D6204482C2A98DE00FD5F6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204472C2A98DE00FD5F6F /* SceneDelegate.swift */; };
 		5D62044F2C2A98DF00FD5F6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5D62044E2C2A98DF00FD5F6F /* Assets.xcassets */; };
@@ -46,6 +48,9 @@
 		5D75DB7E2C50C9A400C483EC /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D75DB7D2C50C9A400C483EC /* TagCollectionView.swift */; };
 		5D75DB802C50CF7900C483EC /* TagCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D75DB7F2C50CF7900C483EC /* TagCollectionCell.swift */; };
 		5D9B94182CCE4EB7002F9DF7 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D9B94172CCE4EB7002F9DF7 /* CameraService.swift */; };
+		5DC47F442CD502DA0043556D /* AddPostPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC47F432CD502DA0043556D /* AddPostPhotoCell.swift */; };
+		5DC47F462CD509200043556D /* AddPostTagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC47F452CD509200043556D /* AddPostTagCell.swift */; };
+		5DC47F482CD50B4D0043556D /* AddPostFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC47F472CD50B4D0043556D /* AddPostFieldCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +69,8 @@
 		5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewPresenter.swift; sourceTree = "<group>"; };
 		5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAplicationExt.swift; sourceTree = "<group>"; };
+		5D5CAE5E2CD3FB97009F2E36 /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
+		5D5CAE602CD3FBDF009F2E36 /* AddPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPresenter.swift; sourceTree = "<group>"; };
 		5D6204422C2A98DE00FD5F6F /* Flicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5D6204472C2A98DE00FD5F6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +96,9 @@
 		5D75DB7D2C50C9A400C483EC /* TagCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
 		5D75DB7F2C50CF7900C483EC /* TagCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionCell.swift; sourceTree = "<group>"; };
 		5D9B94172CCE4EB7002F9DF7 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
+		5DC47F432CD502DA0043556D /* AddPostPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPhotoCell.swift; sourceTree = "<group>"; };
+		5DC47F452CD509200043556D /* AddPostTagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostTagCell.swift; sourceTree = "<group>"; };
+		5DC47F472CD50B4D0043556D /* AddPostFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostFieldCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +244,40 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5D5CAE5A2CD3FB36009F2E36 /* AddPostModule */ = {
+			isa = PBXGroup;
+			children = (
+				5D5CAE5D2CD3FB74009F2E36 /* Module */,
+				5D5CAE5C2CD3FB53009F2E36 /* Presenter */,
+				5D5CAE5B2CD3FB4C009F2E36 /* View */,
+			);
+			path = AddPostModule;
+			sourceTree = "<group>";
+		};
+		5D5CAE5B2CD3FB4C009F2E36 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5DC47F422CD502AC0043556D /* Cell */,
+				5D5CAE5E2CD3FB97009F2E36 /* AddPostView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D5CAE5C2CD3FB53009F2E36 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5D5CAE602CD3FBDF009F2E36 /* AddPostPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5D5CAE5D2CD3FB74009F2E36 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
 		5D6204392C2A98DE00FD5F6F = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +313,7 @@
 		5D6204592C2A992C00FD5F6F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				5D5CAE5A2CD3FB36009F2E36 /* AddPostModule */,
 				5D63AD062CBA9D8F00C58C7D /* PhotoViewModule */,
 				5D2ADD6D2C5CC49C00FFB20A /* DetailsModule */,
 				5D2DE67D2C4E3CCF00772FC9 /* CameraModule */,
@@ -421,6 +466,16 @@
 			path = CameraService;
 			sourceTree = "<group>";
 		};
+		5DC47F422CD502AC0043556D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5DC47F432CD502DA0043556D /* AddPostPhotoCell.swift */,
+				5DC47F452CD509200043556D /* AddPostTagCell.swift */,
+				5DC47F472CD50B4D0043556D /* AddPostFieldCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -507,23 +562,28 @@
 				5D62045E2C2A9B1800FD5F6F /* PasscodeView.swift in Sources */,
 				5D9B94182CCE4EB7002F9DF7 /* CameraService.swift in Sources */,
 				5D6DF6992C3287640014BEC2 /* KeychainManager.swift in Sources */,
+				5DC47F442CD502DA0043556D /* AddPostPhotoCell.swift in Sources */,
 				5D2ADD712C5CC5F700FFB20A /* DetailsView.swift in Sources */,
 				5D2DE6932C4E3ED500772FC9 /* MainPostHeader.swift in Sources */,
 				5D2DE6802C4E3CF800772FC9 /* CameraView.swift in Sources */,
 				5D6204482C2A98DE00FD5F6F /* SceneDelegate.swift in Sources */,
+				5DC47F482CD50B4D0043556D /* AddPostFieldCell.swift in Sources */,
 				5D2DE6842C4E3DF000772FC9 /* FavoriteView.swift in Sources */,
 				5D2DE68B2C4E3E9200772FC9 /* PostItem.swift in Sources */,
 				5D2DE67C2C4E3C7B00772FC9 /* DataExt.swift in Sources */,
 				5D63AD0A2CBA9E7F00C58C7D /* PhotoView.swift in Sources */,
+				5D5CAE5F2CD3FB97009F2E36 /* AddPostView.swift in Sources */,
 				5D6497662C8A01790087B4BA /* DetailsDescriptionCell.swift in Sources */,
 				5D63AD0E2CBAE08300C58C7D /* NSNotificationName.swift in Sources */,
 				5D65DF632CB84B6400DC4CF7 /* UITextFieldExt.swift in Sources */,
 				5D6DF69E2C32D5F60014BEC2 /* StringProtocolExt.swift in Sources */,
 				5D75DB802C50CF7900C483EC /* TagCollectionCell.swift in Sources */,
 				5D2DE68F2C4E3EB600772FC9 /* MainScreenView.swift in Sources */,
+				5DC47F462CD509200043556D /* AddPostTagCell.swift in Sources */,
 				5D6204622C2A9B8800FD5F6F /* Builder.swift in Sources */,
 				5D6204652C2AD28E00FD5F6F /* PasscodePresenter.swift in Sources */,
 				5D2DE68D2C4E3EA600772FC9 /* MainScreenPresenter.swift in Sources */,
+				5D5CAE612CD3FBDF009F2E36 /* AddPostPresenter.swift in Sources */,
 				5D2DE6912C4E3EC300772FC9 /* MainPostCell.swift in Sources */,
 				5D658F7C2C2E99B20033A2C5 /* UIViewExt.swift in Sources */,
 				5D2ADD732C5CC62E00FFB20A /* DetailsViewPresenter.swift in Sources */,

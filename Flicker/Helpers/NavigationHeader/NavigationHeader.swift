@@ -49,7 +49,7 @@ class NavigationHeader: NavigationHeaderProtocol {
             navigationView.addSubview(backButton)
             navigationView.addSubview(menuButton)
         case .close:
-            navigationView.addSubview(closeButton)
+            navigationView.addSubview(backButton)
         }
         return navigationView
     }
