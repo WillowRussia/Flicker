@@ -68,6 +68,8 @@ class PasscodeView: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .appMain
         
+        NotificationCenter.default.addObserver(self, selector: #selector(dismissPasscodeView), name: .dismissPascode, object: nil) // Скрытие окна
+        
         [keyboardStack,passcodeTitle,codeStack,deleteBtn].forEach {
             view.addSubview($0)
         }
@@ -106,8 +108,11 @@ class PasscodeView: UIViewController {
             deleteBtn.bottomAnchor.constraint(equalTo: keyboardStack.bottomAnchor, constant: -25),
         ])
 
-
     }
+    
+    @objc func dismissPasscodeView(){ // Метод для скрытия окна
+           dismiss(animated: true)
+       }
 
 }
 

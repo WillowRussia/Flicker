@@ -23,6 +23,10 @@
 		5D2DE69C2C4E3F4900772FC9 /* TabBarViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */; };
 		5D2DE69F2C4E419100772FC9 /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = 5D2DE69E2C4E419100772FC9 /* KeychainAccess */; };
 		5D2DE6A12C4E8DA600772FC9 /* UIAplicationExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */; };
+		5D4DCF742D15915D0019D84C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DCF732D1591530019D84C /* SettingsView.swift */; };
+		5D4DCF762D1591720019D84C /* SettingsViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DCF752D1591630019D84C /* SettingsViewPresenter.swift */; };
+		5D4DCF792D15958F0019D84C /* SettingItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DCF782D1595870019D84C /* SettingItems.swift */; };
+		5D4DCF7C2D15998D0019D84C /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DCF7B2D15998D0019D84C /* SettingCell.swift */; };
 		5D5CAE5F2CD3FB97009F2E36 /* AddPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CAE5E2CD3FB97009F2E36 /* AddPostView.swift */; };
 		5D5CAE612CD3FBDF009F2E36 /* AddPostPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5CAE602CD3FBDF009F2E36 /* AddPostPresenter.swift */; };
 		5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D6204452C2A98DE00FD5F6F /* AppDelegate.swift */; };
@@ -69,6 +73,10 @@
 		5D2DE6992C4E3F3700772FC9 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		5D2DE69B2C4E3F4900772FC9 /* TabBarViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewPresenter.swift; sourceTree = "<group>"; };
 		5D2DE6A02C4E8DA600772FC9 /* UIAplicationExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAplicationExt.swift; sourceTree = "<group>"; };
+		5D4DCF732D1591530019D84C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		5D4DCF752D1591630019D84C /* SettingsViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewPresenter.swift; sourceTree = "<group>"; };
+		5D4DCF782D1595870019D84C /* SettingItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingItems.swift; sourceTree = "<group>"; };
+		5D4DCF7B2D15998D0019D84C /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		5D5CAE5E2CD3FB97009F2E36 /* AddPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostView.swift; sourceTree = "<group>"; };
 		5D5CAE602CD3FBDF009F2E36 /* AddPostPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostPresenter.swift; sourceTree = "<group>"; };
 		5D6204422C2A98DE00FD5F6F /* Flicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +252,49 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		5D4DCF6E2D1590FF0019D84C /* SettingsViewModule */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DCF772D15957B0019D84C /* Model */,
+				5D4DCF722D1591290019D84C /* View */,
+				5D4DCF712D1591230019D84C /* Presenter */,
+			);
+			path = SettingsViewModule;
+			sourceTree = "<group>";
+		};
+		5D4DCF712D1591230019D84C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DCF752D1591630019D84C /* SettingsViewPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5D4DCF722D1591290019D84C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DCF7A2D1599490019D84C /* Cell */,
+				5D4DCF732D1591530019D84C /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5D4DCF772D15957B0019D84C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DCF782D1595870019D84C /* SettingItems.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5D4DCF7A2D1599490019D84C /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5D4DCF7B2D15998D0019D84C /* SettingCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		5D5CAE5A2CD3FB36009F2E36 /* AddPostModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -313,6 +364,7 @@
 		5D6204592C2A992C00FD5F6F /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				5D4DCF6E2D1590FF0019D84C /* SettingsViewModule */,
 				5D5CAE5A2CD3FB36009F2E36 /* AddPostModule */,
 				5D63AD062CBA9D8F00C58C7D /* PhotoViewModule */,
 				5D2ADD6D2C5CC49C00FFB20A /* DetailsModule */,
@@ -555,11 +607,14 @@
 				5D2DE69A2C4E3F3700772FC9 /* TabBarView.swift in Sources */,
 				5D63AD052CBA974A00C58C7D /* DetailsMapCell.swift in Sources */,
 				5D08FD232C579022004806EE /* FavoriteViewPresenter.swift in Sources */,
+				5D4DCF742D15915D0019D84C /* SettingsView.swift in Sources */,
 				5D6497642C89FD480087B4BA /* DetailsPhotoCell.swift in Sources */,
 				5D65DF612CB849CE00DC4CF7 /* DetailsAddCommentCell.swift in Sources */,
 				5D6204462C2A98DE00FD5F6F /* AppDelegate.swift in Sources */,
 				5D63AD0C2CBAA25700C58C7D /* PhotoViewPresenter.swift in Sources */,
+				5D4DCF7C2D15998D0019D84C /* SettingCell.swift in Sources */,
 				5D62045E2C2A9B1800FD5F6F /* PasscodeView.swift in Sources */,
+				5D4DCF792D15958F0019D84C /* SettingItems.swift in Sources */,
 				5D9B94182CCE4EB7002F9DF7 /* CameraService.swift in Sources */,
 				5D6DF6992C3287640014BEC2 /* KeychainManager.swift in Sources */,
 				5DC47F442CD502DA0043556D /* AddPostPhotoCell.swift in Sources */,
@@ -579,6 +634,7 @@
 				5D6DF69E2C32D5F60014BEC2 /* StringProtocolExt.swift in Sources */,
 				5D75DB802C50CF7900C483EC /* TagCollectionCell.swift in Sources */,
 				5D2DE68F2C4E3EB600772FC9 /* MainScreenView.swift in Sources */,
+				5D4DCF762D1591720019D84C /* SettingsViewPresenter.swift in Sources */,
 				5DC47F462CD509200043556D /* AddPostTagCell.swift in Sources */,
 				5D6204622C2A9B8800FD5F6F /* Builder.swift in Sources */,
 				5D6204652C2AD28E00FD5F6F /* PasscodePresenter.swift in Sources */,

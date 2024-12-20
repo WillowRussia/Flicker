@@ -9,7 +9,7 @@ import UIKit
 
 protocol BuilderProtocol{
     
-    static func getPasscodeController(passcodeState: PasscodeState, sceneDelegate: SceneDelegateProtocol) -> UIViewController
+    static func getPasscodeController(passcodeState: PasscodeState, sceneDelegate: SceneDelegateProtocol?, isSetting: Bool) -> UIViewController
     static func createTabBarController() -> UIViewController
 
     //vc
@@ -22,11 +22,11 @@ protocol BuilderProtocol{
 
 class Builder: BuilderProtocol{
 
-    static func getPasscodeController(passcodeState: PasscodeState, sceneDelegate: SceneDelegateProtocol) -> UIViewController{
+    static func getPasscodeController(passcodeState: PasscodeState, sceneDelegate: SceneDelegateProtocol?, isSetting: Bool) -> UIViewController{
         let passcodeView = PasscodeView()
         let keychainManager = KeychainManager()
-
-        let presenter = PasscodePresenter(view: passcodeView, passcodeState: passcodeState, keychainManager: keychainManager, sceneDelagate: sceneDelegate)
+        
+        let presenter = PasscodePresenter(view: passcodeView, passcodeState: passcodeState, keychainManager: keychainManager, sceneDelagate: sceneDelegate, isSetting: isSetting)
 
         passcodeView.passcodePresenter = presenter
         return passcodeView
@@ -46,8 +46,8 @@ class Builder: BuilderProtocol{
     static func createMainScreenController() -> UIViewController {
         let mainView = MainScreenView()
         let presenter = MainScreenPresenter(view: mainView)
+        
         mainView.presenter = presenter
-
         return mainView
     }
 
@@ -56,6 +56,7 @@ class Builder: BuilderProtocol{
         let cameraView = CameraView()
         let cameraService = CameraService()
         let presenter = CameraViewPresenter(view: cameraView, cameraService: cameraService)
+        
         cameraView.presenter = presenter
         return UIImagePickerController(rootViewController: cameraView) // Контроллер выбора изображений
     }
@@ -64,6 +65,7 @@ class Builder: BuilderProtocol{
     static func createFavoriteScreenController() -> UIViewController {
         let favoriteView = FavotiteView()
         let presenter = FavoriteViewPresenter(view: favoriteView)
+        
         favoriteView.presenter = presenter
         return UINavigationController(rootViewController: favoriteView) //Назначение контроллера навигации
     }
@@ -72,6 +74,7 @@ class Builder: BuilderProtocol{
     static func createDetailsController(item: PostItem) -> UIViewController {
         let detailsView = DetailsView()
         let presenter = DetailsViewPresenter(view: detailsView, item: item)
+        
         detailsView.presenter = presenter
         return detailsView
     }
@@ -80,6 +83,7 @@ class Builder: BuilderProtocol{
     static func createPhotoViewController(image: UIImage?) -> UIViewController {
         let photoView = PhotoView()
         let presenter = PhotoViewPresenter(view: photoView, image: image)
+        
         photoView.presenter = presenter
         return photoView
     }
@@ -88,7 +92,17 @@ class Builder: BuilderProtocol{
     static func createAddPostViewController(photos: [UIImage]) -> UIViewController {
         let addPostView = AddPostView()
         let presenter = AddPostPresenter(view: addPostView, photos: photos)
+        
         addPostView.presenter = presenter
         return addPostView
+    }
+    
+    // Создание экрана настроек приложения
+    static func createSettingsViewController() -> UIViewController {
+        let settingsView = SettingsView()
+        let presenter = SettingsViewPresenter(view: settingsView)
+        
+        settingsView.presenter = presenter
+        return UINavigationController(rootViewController: settingsView)
     }
 }

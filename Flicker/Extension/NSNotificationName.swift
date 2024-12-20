@@ -10,4 +10,5 @@ import Foundation
 extension NSNotification.Name {
     static let hideTabBar = NSNotification.Name("hideTabBAr") // Название модификации
     static let goToMain = NSNotification.Name("goToMain") // Название модификации
+    static let dismissPascode = NSNotification.Name("dismissPascode") // Скрытие окна pascode
 }

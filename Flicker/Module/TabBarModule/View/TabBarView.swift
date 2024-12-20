@@ -14,7 +14,7 @@ protocol TabBarViewProtocol: AnyObject{
 class TabBarView: UITabBarController {
 
     var presenter: TabBarViewPresenterProtocol!
-    private let tabs: [UIImage] = [.home, .plus, .heart]
+    private let tabsImage: [UIImage] = [.home, .plus, .heart]
     
     private lazy var tabBarView: UIView = {
         return $0
@@ -27,7 +27,7 @@ class TabBarView: UITabBarController {
         NotificationCenter.default.addObserver(self, selector: #selector(hideTabBar), name: .hideTabBar, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goToMain), name: .goToMain, object: nil)
 
-        tabs.enumerated().forEach{
+        tabsImage.enumerated().forEach{
             let offsets: [Double] = [-100, 0, 100]
             let tabButton = createTabBarButton(icon: $0.element, tag: $0.offset, offsetX: offsets[$0.offset], isBigButton: $0.offset == 1 ? true : false)
 

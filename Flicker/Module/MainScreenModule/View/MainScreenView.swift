@@ -40,7 +40,12 @@ class MainScreenView: UIViewController {
         $0.frame = CGRect(x: view.bounds.width - 50, y: menuViewHeight - 35, width: 20, height: 20)
         $0.setBackgroundImage(UIImage(systemName: "gearshape"), for: .normal)
         return $0
-    }(UIButton())
+    }(UIButton(primaryAction: settingButtonAction))
+    
+    lazy var settingButtonAction = UIAction { [weak self] _ in
+    let settingVC = Builder.createSettingsViewController()
+        self?.present (settingVC, animated: true)
+}
     private lazy var collectionView: UICollectionView = {
 
         let layout = $0.collectionViewLayout as! UICollectionViewFlowLayout
