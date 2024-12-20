@@ -15,10 +15,12 @@ protocol CameraViewPresenterProtocol: AnyObject {
     var closeViewAction: UIAction? { get set }
     var switchCameraAction: UIAction? { get set }
     
+    func deletePhoto(index: Int)
+    
 }
 
 class CameraViewPresenter: CameraViewPresenterProtocol {
-    
+
     private weak var view: CameraViewProtocol?
     
     var cameraService: CameraServiceProtocol
@@ -32,6 +34,10 @@ class CameraViewPresenter: CameraViewPresenterProtocol {
     
     lazy var switchCameraAction: UIAction? = UIAction{ [weak self] _ in
         self?.cameraService.switchCamera()
+    }
+    
+    func deletePhoto(index: Int) {
+        photos.remove(at: index)
     }
     
     required init(view: CameraViewProtocol, cameraService: CameraServiceProtocol) {

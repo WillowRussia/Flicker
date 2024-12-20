@@ -8,14 +8,16 @@
 import UIKit
 
 protocol AddPostViewProtocol: AnyObject {
-    
+    var deleteDelegate: CameraViewDelegate? { get set }
 }
 
 class AddPostView: UIViewController, AddPostViewProtocol {
     
+    
     private var menuViewHeight = UIApplication.topSafeArea + 50
     
     var presenter: AddPostPresenterProtocol!
+    var deleteDelegate: CameraViewDelegate?
     
     lazy var collectionView: UICollectionView = {
         $0.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 100, right: 0) //Добавляет расстояние вокруг коллекции
@@ -53,7 +55,7 @@ class AddPostView: UIViewController, AddPostViewProtocol {
     }()
     
     lazy var backAction = UIAction {[weak self] _ in
-        
+        self?.navigationController?.popViewController(animated: true)
     }
 
     override func viewDidLoad() {
@@ -171,7 +173,7 @@ extension AddPostView {
 extension AddPostView: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        1
+        3
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -189,23 +191,29 @@ extension AddPostView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
-                case 0:
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostPhotoCell.reuseId, for: indexPath) as! AddPostPhotoCell
-                    let image = presenter.photos[indexPath.row]
-                    cell.setCellImage(image: image)
-                    
-                    return cell
-                case 1:
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostTagCell.reuseId, for: indexPath) as! AddPostTagCell
-                    let tag = presenter.tags[indexPath.row]
-                    cell.setTagText(tagText: tag)
+        case 0:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostPhotoCell.reuseId, for: indexPath) as! AddPostPhotoCell
+            let image = presenter.photos[indexPath.row]
+            cell.setCellImage(image: image)
             
-                    return cell
-                default:
-                    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostFieldCell.reuseId, for: indexPath) as! AddPostFieldCell
-                    
-                    return cell
-                }
+            cell.completion = { [weak self] in
+                self?.deleteDelegate?.deletePhoto(index: indexPath.row) // Вызываем делегат для удаления фотки
+                self?.presenter.photos.remove(at: indexPath.row)
+                self?.collectionView.reloadData()
+            }
+            
+            return cell
+        case 1:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostTagCell.reuseId, for: indexPath) as! AddPostTagCell
+            let tag = presenter.tags[indexPath.row]
+            cell.setTagText(tagText: tag)
+            
+            return cell
+        default:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostFieldCell.reuseId, for: indexPath) as! AddPostFieldCell
+            
+            return cell
+        }
     }
     
     

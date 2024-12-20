@@ -58,7 +58,7 @@ class Builder: BuilderProtocol{
         let presenter = CameraViewPresenter(view: cameraView, cameraService: cameraService)
         
         cameraView.presenter = presenter
-        return UIImagePickerController(rootViewController: cameraView) // Контроллер выбора изображений
+        return UINavigationController(rootViewController: cameraView)
     }
 
     //Создание экрана избраных
