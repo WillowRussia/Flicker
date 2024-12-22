@@ -94,7 +94,7 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
 
     // Количество ячеек в каждой секции
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.presenter.posts?[section].items.count ?? 0
+        self.presenter.posts?[section].items?.count ?? 0
     }
 
     //Создание самой ячеки из шаблона
@@ -103,8 +103,12 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MainPostCell.reuseId, for: indexPath) as? MainPostCell
         else { return UICollectionViewCell() }
 
-        if let item = presenter.posts?[indexPath.section].items[indexPath.row] {
-            cell.configureCell(item: item)
+        if let items = presenter.posts?[indexPath.section].items?.allObjects as? [PostItem] {
+            
+            let posts = items.sorted {
+                $0.date > $1.date
+            }
+            cell.configureCell(item: posts[indexPath.item])
         }
         
         cell.backgroundColor = .gray

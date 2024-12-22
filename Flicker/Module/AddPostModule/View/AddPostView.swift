@@ -11,6 +11,11 @@ protocol AddPostViewProtocol: AnyObject {
     var deleteDelegate: CameraViewDelegate? { get set }
 }
 
+protocol AddPostViewDelegate: AnyObject {
+    func addTag(tag: String?)
+    func addDescription(text: String?)
+}
+
 class AddPostView: UIViewController, AddPostViewProtocol {
     
     
@@ -40,8 +45,9 @@ class AddPostView: UIViewController, AddPostViewProtocol {
         return $0
     }(UIButton(frame: CGRect(x: 30, y: view.bounds.height - 98 , width: view.bounds.width - 60, height: 55), primaryAction: saveBtnAction))
     
-    lazy var saveBtnAction = UIAction { _ in
-        
+    lazy var saveBtnAction = UIAction { [weak self] _ in
+        guard let self = self else {return}
+        self.presenter.savePost()
     }
     
     lazy var topMenuView: UIView = {
@@ -206,7 +212,13 @@ extension AddPostView: UICollectionViewDataSource {
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostTagCell.reuseId, for: indexPath) as! AddPostTagCell
             let tag = presenter.tags[indexPath.row]
-            cell.setTagText(tagText: tag)
+            cell.setTagText(tagText: tag, tagIndex: indexPath.row)
+            
+            cell.deleteCompletion = { [weak self] in
+                guard let self = self else {return}
+                presenter.tags.remove(at: $0)
+                collectionView.reloadSections(.init(integer: 1))
+            }
             
             return cell
         default:
@@ -214,6 +226,22 @@ extension AddPostView: UICollectionViewDataSource {
             
             return cell
         }
+    }
+    
+    
+}
+
+extension AddPostView: AddPostViewDelegate {
+    
+    func addTag(tag: String?) {
+        guard let tag else { return }
+        presenter.tags.append(tag)
+        collectionView.reloadSections(.init(integer: 1))
+    }
+    
+    func addDescription(text: String?) {
+        guard let text else { return }
+        presenter.postDescription = text
     }
     
     

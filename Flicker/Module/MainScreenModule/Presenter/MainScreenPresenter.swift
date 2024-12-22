@@ -10,14 +10,16 @@ import UIKit
 
 protocol MainScreenPresenterProtocol: AnyObject{
     init(view: MainScreenViewProtocol)
-    var posts: [PostDate]? { get set }
+    var posts: [PostData]? { get set }
     func getPosts()
 }
 
 
 class MainScreenPresenter{
+    
     weak var view: MainScreenViewProtocol?
-    var posts: [PostDate]?
+    private let coreManager = CoreManager.shared
+    var posts: [PostData]?
 
     required init(view: MainScreenViewProtocol) {
         self.view = view
@@ -28,7 +30,7 @@ class MainScreenPresenter{
 
 extension MainScreenPresenter: MainScreenPresenterProtocol{
     func getPosts() {
-        self.posts = PostDate.getMockData()
+        self.posts = coreManager.allPost
         view?.showPosts()
     }
 }

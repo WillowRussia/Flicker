@@ -50,7 +50,7 @@ class FavoriteCell: UICollectionViewCell, CollectionViewCellProtocol {
     }
     
     func configureCell(item: PostItem) {
-        postImage.image = UIImage(named: item.photos.first!)
+        postImage.image = UIImage(named: item.photos!.first!)
         dateLabel.text = item.date.formatDate(formatType: .full)
     }
     

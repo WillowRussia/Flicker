@@ -175,7 +175,7 @@ extension DetailsView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return presenter.item.photos.count
+            return presenter.item.photos?.count ?? 0
         case 1:
             return presenter.item.tags?.count ?? 0
         case 2,4,5:
@@ -192,7 +192,7 @@ extension DetailsView: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsPhotoCell.reuseId, for: indexPath) as! DetailsPhotoCell
-            cell.configureCell(image: presenter.item.photos[indexPath.item])
+            cell.configureCell(image: presenter.item.photos![indexPath.item])
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionCell.reuseId, for: indexPath) as! TagCollectionCell
@@ -200,12 +200,12 @@ extension DetailsView: UICollectionViewDataSource {
             return cell
         case 2:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsDescriptionCell.reuseId, for: indexPath) as! DetailsDescriptionCell
-            cell.configureCell(date: nil, text: item.description ?? "")
+            cell.configureCell(date: nil, text: item.postDescription ?? "")
             return cell
         case 3:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsDescriptionCell.reuseId, for: indexPath) as! DetailsDescriptionCell
-            let comment = item.comments?[indexPath.row]
-            cell.configureCell(date: comment?.date, text: comment?.comment ?? "")
+            if let comment = item.comments?.allObjects as? [Comment]{
+                cell.configureCell(date: comment[indexPath.row].date, text: comment[indexPath.row].comment ?? " ")}
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsAddCommentCell.reuseId, for: indexPath) as! DetailsAddCommentCell
@@ -216,7 +216,7 @@ extension DetailsView: UICollectionViewDataSource {
             return cell
         case 5:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsMapCell.reuseId, for: indexPath) as! DetailsMapCell
-            cell.configureCell(coordinate: item.location)
+            // cell.configureCell(coordinate: item.location)
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
@@ -232,7 +232,7 @@ extension DetailsView: UICollectionViewDataSource {
 extension DetailsView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { // Сообщает делегату, что выбран элемент
         if indexPath.section == 0{
-            let itemPhoto = presenter.item.photos[indexPath.item]
+            let itemPhoto = presenter.item.photos![indexPath.item]
             photoView = Builder.createPhotoViewController(image: UIImage (named: itemPhoto)) as? PhotoView
             
             addChild(photoView) //Добавляет указанный контроллер в качестве дочернего элемента текущего контроллера

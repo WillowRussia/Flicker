@@ -48,7 +48,7 @@ class Builder: BuilderProtocol{
         let presenter = MainScreenPresenter(view: mainView)
         
         mainView.presenter = presenter
-        return mainView
+        return UINavigationController(rootViewController: mainView) 
     }
 
     // Созднание экрана для добавления фотографий

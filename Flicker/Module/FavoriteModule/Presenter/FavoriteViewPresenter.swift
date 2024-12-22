@@ -27,7 +27,7 @@ class FavoriteViewPresenter: FavoriteViewPresenterProtocol {
     }
     
     func getPost() {
-        self.post = PostItem.getMockItems()
+        //self.post = PostItem.getMockItems()
         self.view?.showPost()
     }
     

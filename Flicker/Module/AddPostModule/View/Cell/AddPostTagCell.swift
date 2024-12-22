@@ -10,6 +10,8 @@ import UIKit
 class AddPostTagCell: UICollectionViewCell, CollectionViewCellProtocol{
     
     static var reuseId: String = "AddPostTagCell"
+    var tagIndex = 0
+    var deleteCompletion: ((Int) -> ())?
     
     private lazy var tagView: UIView = {
         .configure(view: $0) { tagView in
@@ -43,8 +45,9 @@ class AddPostTagCell: UICollectionViewCell, CollectionViewCellProtocol{
         }
     }(UIButton(primaryAction: removeAction))
     
-    private lazy var removeAction = UIAction { _ in
-        
+    private lazy var removeAction = UIAction { [weak self] _ in
+        guard let self = self else {return}
+        deleteCompletion?(tagIndex)
     }
     
     required override init(frame: CGRect) {
@@ -67,8 +70,9 @@ class AddPostTagCell: UICollectionViewCell, CollectionViewCellProtocol{
         ])
     }
     
-    func setTagText(tagText: String){
+    func setTagText(tagText: String, tagIndex: Int){
         self.tagLabel.text = tagText
+        self.tagIndex = tagIndex
     }
     
     required init?(coder: NSCoder) {

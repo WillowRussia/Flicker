@@ -67,11 +67,10 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
         let tagCollection: TagCollectionViewProtocol = TagCollectionView(dataSource: self)
         tagCollectionView = tagCollection.getCollectionView()
         
-        postImage.image = UIImage(named: item.photos.first!)
-        
-        photoCountLabel = getCellLabel(text: "\(item.photos.count) фото")
+        postImage.image = UIImage.getCoverPhoto(folderId: item.id, photos: item.photos)
+        photoCountLabel = getCellLabel(text: "\(item.photos!.count) фото")
         commentCountLabel = getCellLabel(text: "\(item.comments?.count ?? 0) коментарий")
-        postDescriptionLabel = getCellLabel(text:item.description ?? "")
+        postDescriptionLabel = getCellLabel(text:item.postDescription ?? "")
         
         [countLabelsStack, tagCollectionView,postDescriptionLabel].forEach{addSubview($0)}
         
