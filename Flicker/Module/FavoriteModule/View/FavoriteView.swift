@@ -38,6 +38,8 @@ class FavotiteView: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .appMain
         view.addSubview(collectionView)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .dataDidUpdate, object: nil)
        
     }
     
@@ -59,7 +61,17 @@ class FavotiteView: UIViewController {
             NSAttributedString.Key.foregroundColor : UIColor.white // Цвет текста в маленьком размере(свернут)
         ]
     }
-
+    
+    
+    @objc private func reloadData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .dataDidUpdate, object: nil)
+    }
 
 }
 
@@ -79,7 +91,11 @@ extension FavotiteView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoriteCell.reuseId, for: indexPath) as! FavoriteCell
         if let item = presenter.post?[indexPath.row] {
-            cell.configureCell(item: item)
+            cell.configureCell( item: item)
+            cell.completion = {
+                item.toggleFavorite (isFavorite: item.isFavorite)
+            }
+            
         }
         cell.backgroundColor = .red
         return cell

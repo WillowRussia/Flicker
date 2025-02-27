@@ -88,6 +88,7 @@ class CameraView: UIViewController, CameraViewProtocol {
         view.addSubview(shotButton)
         view.addSubview(nextButton)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(deleteAllPhoto), name: .dismissCameraView, object: nil)
         
     }
     
@@ -172,6 +173,14 @@ extension CameraView: AVCapturePhotoCaptureDelegate {
 }
 
 extension CameraView: CameraViewDelegate {
+    
+    @objc func deleteAllPhoto() {
+        presenter.photos.removeAll()
+        nextButton.layer.opacity = 0.6
+        nextButton.isEnabled = false
+        
+        shotsCollectionView.reloadData()
+    }
     
     func deletePhoto(index: Int) {
         presenter.deletePhoto(index: index)

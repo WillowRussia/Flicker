@@ -17,9 +17,8 @@ protocol FavoriteViewPresenterProtocol: AnyObject {
 class FavoriteViewPresenter: FavoriteViewPresenterProtocol {
     
     var post: [PostItem]?
-    
-    
     private weak var view: FavotiteViewProtocol?
+    private let coreManager = CoreManager.shared
     
     required init(view: FavotiteViewProtocol) {
         self.view = view
@@ -27,7 +26,8 @@ class FavoriteViewPresenter: FavoriteViewPresenterProtocol {
     }
     
     func getPost() {
-        //self.post = PostItem.getMockItems()
+        coreManager.getFavoritePosts()
+        self.post = coreManager.favoritePost
         self.view?.showPost()
     }
     

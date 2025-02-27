@@ -30,8 +30,8 @@ class DetailsPhotoCell: UICollectionViewCell, CollectionViewCellProtocol {
         cellImage.addSubview(imageMenuButton)
     }
     
-    func configureCell(image: String) {
-        cellImage.image = UIImage(named: image)
+    func configureCell(folderId: String, photo: String) {
+        cellImage.image = .getOneImage(folderId: folderId, photo: photo)
     }
     
     required init?(coder: NSCoder) {

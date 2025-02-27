@@ -22,6 +22,7 @@ class SettingsView: UIViewController, SettingsViewProtocol {
     }(UITableView(frame: view.bounds, style: .insetGrouped))
     
     var presenter: SettingsViewPresenterProtocol!
+    private let coreManager = CoreManager.shared
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.barTintColor = .appMain
@@ -42,7 +43,6 @@ class SettingsView: UIViewController, SettingsViewProtocol {
         view.addSubview(tableView)
         
         title = "Настройки"
-        
         
         view.backgroundColor = .appBlack
         
@@ -66,6 +66,10 @@ extension SettingsView: UITableViewDataSource {
             if indexPath.row == 0{
                 let passcodeVC = Builder.getPasscodeController(passcodeState: .setNewPasscode, sceneDelegate: nil, isSetting: true)
                 self.present(passcodeVC, animated: true)
+            } else if indexPath.row == 1 {
+                self.showDeletionAlert(on: self) {
+                    self.coreManager.deletePostDataWithPhotos()
+                }
             }
         }
         
@@ -74,4 +78,24 @@ extension SettingsView: UITableViewDataSource {
         return cell
     }
     
+}
+
+extension SettingsView {
+    func showDeletionAlert(on viewController: UIViewController, completion: @escaping () -> Void) {
+        let alert = UIAlertController(
+            title: "Внимание!",
+            message: "Это действие необратимо. Вы уверены, что хотите продолжить?",
+            preferredStyle: .alert
+        )
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel, handler: nil)
+        let deleteAction = UIAlertAction(title: "Удалить", style: .destructive) { _ in
+            completion() // Выполняем действие после подтверждения
+        }
+        
+        alert.addAction(cancelAction)
+        alert.addAction(deleteAction)
+        
+        viewController.present(alert, animated: true, completion: nil)
+    }
 }

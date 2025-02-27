@@ -28,8 +28,7 @@ class CameraViewPresenter: CameraViewPresenterProtocol {
     var photos: [UIImage] = []
     
     lazy var closeViewAction: UIAction? = UIAction{ [weak self] _ in
-        NotificationCenter.default.post(name: .goToMain, object: nil)
-        self?.cameraService.stopSession()
+        self?.closeView()
     }
     
     lazy var switchCameraAction: UIAction? = UIAction{ [weak self] _ in
@@ -40,9 +39,16 @@ class CameraViewPresenter: CameraViewPresenterProtocol {
         photos.remove(at: index)
     }
     
+    @objc func closeView() {
+        NotificationCenter.default.post(name: .goToMain, object: nil)
+        cameraService.stopSession()
+    }
+    
     required init(view: CameraViewProtocol, cameraService: CameraServiceProtocol) {
         self.view = view
         self.cameraService = cameraService
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(closeView), name: .dismissCameraView, object: nil)
     }
     
 }

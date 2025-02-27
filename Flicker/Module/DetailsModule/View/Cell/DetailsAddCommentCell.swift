@@ -21,7 +21,11 @@ class DetailsAddCommentCell: UICollectionViewCell, CollectionViewCellProtocol {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = bounds.height/2
         $0.clipsToBounds = true
-        $0.placeholder = "Добавить комментарий"
+        $0.attributedPlaceholder = NSAttributedString(
+            string: "Добавить комментарий",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.gray]
+        )
+        $0.textColor = .gray
         $0.setLeftOffSet()
         return $0
     }(UITextField(frame: bounds, primaryAction: action))

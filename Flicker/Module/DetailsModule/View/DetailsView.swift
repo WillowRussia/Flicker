@@ -192,7 +192,7 @@ extension DetailsView: UICollectionViewDataSource {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsPhotoCell.reuseId, for: indexPath) as! DetailsPhotoCell
-            cell.configureCell(image: presenter.item.photos![indexPath.item])
+            cell.configureCell(folderId: presenter.item.id, photo: presenter.item.photos![indexPath.item])
             return cell
         case 1:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TagCollectionCell.reuseId, for: indexPath) as! TagCollectionCell
@@ -209,8 +209,8 @@ extension DetailsView: UICollectionViewDataSource {
             return cell
         case 4:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DetailsAddCommentCell.reuseId, for: indexPath) as! DetailsAddCommentCell
-            cell.completion = { /*[weak self]*/ comment in
-//                guard let self = self else { return }
+            cell.completion = { [weak self] comment in
+                guard self != nil else { return }
                 print (comment)
             }
             return cell
@@ -233,7 +233,8 @@ extension DetailsView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) { // Сообщает делегату, что выбран элемент
         if indexPath.section == 0{
             let itemPhoto = presenter.item.photos![indexPath.item]
-            photoView = Builder.createPhotoViewController(image: UIImage (named: itemPhoto)) as? PhotoView
+            let photo: UIImage? = .getOneImage (folderId: presenter.item.id, photo: itemPhoto)
+            photoView = Builder.createPhotoViewController(image: photo) as? PhotoView
             
             addChild(photoView) //Добавляет указанный контроллер в качестве дочернего элемента текущего контроллера
             photoView.view.frame = view.bounds

@@ -43,6 +43,14 @@ class StoreManager {
         }
         return photosData
     }
+    
+    func getPhoto(postId: String, imageName: String) -> Data?{
+        let path = getPath().appending(path: postId).appending(path: imageName)
+        if let photoData = try? Data (contentsOf: path) {
+            return photoData
+        }
+        return nil
+    }
                                              
     private func savePhoto(postId: String, photo: Data) -> String{
         let name = UUID().uuidString + ".jpeg"

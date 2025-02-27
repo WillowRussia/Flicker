@@ -10,7 +10,7 @@ import UIKit
 class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
 
     static let reuseId = "MainPostCell"
-    
+    var completion: (() -> ())? // Замыкание для добавление фоварита
     private var tags: [String] = []
     
     private var tagCollectionView: UICollectionView! //Колекция из тегов
@@ -40,7 +40,9 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
         $0.setBackgroundImage(.heart, for: .normal)
         $0.tintColor = .black
         return $0
-    }(UIButton(primaryAction: nil))
+    }(UIButton(primaryAction: UIAction( handler: { [weak self] _ in
+        self?.completion?()
+    })))
     
     required override init(frame: CGRect) {
         super.init(frame: frame)
@@ -63,6 +65,8 @@ class MainPostCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     func configureCell(item: PostItem){ // Функция, которая вызывается из вне для настройки ячеки
         tags = item.tags ?? []
+        
+        addFavoriteButton.setBackgroundImage(item.isFavorite ? .heartBlack : .heart, for: .normal)
         
         let tagCollection: TagCollectionViewProtocol = TagCollectionView(dataSource: self)
         tagCollectionView = tagCollection.getCollectionView()

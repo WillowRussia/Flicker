@@ -12,6 +12,7 @@ class CoreManager {
     
     static let shared = CoreManager()
     var allPost: [PostData] = []
+    var favoritePost: [PostItem] = []
     
     private init(){
         self.fetchPosts()
@@ -46,6 +47,7 @@ class CoreManager {
         do {
             let posts = try persistentContainer.viewContext.fetch(request)
             self.allPost = posts
+            notifyUpdate()
         } catch {
             print(error.localizedDescription)
         }
@@ -68,7 +70,7 @@ class CoreManager {
             } else {
                 // Если нет, то создаем новый
                 let parent = PostData(context: persistentContainer.viewContext)
-                parent.id = UUID() .uuidString
+                parent.id = UUID().uuidString
                 parent.date = Date()
                 post.parent = parent
             }
@@ -78,4 +80,46 @@ class CoreManager {
                 print(error.localizedDescription)
         }
     }
+    
+    func getFavoritePosts(){
+        let bool = NSNumber (booleanLiteral: true)
+        let req = PostItem.fetchRequest()
+        req.predicate = NSPredicate(format: "isFavorite = %@", bool as CVarArg)
+        do {
+            let favoritePosts = try persistentContainer.viewContext.fetch(req)
+            self.favoritePost = favoritePosts
+        }
+        catch {
+            print (error.localizedDescription)
+        }
+    }
+    
+    func deletePostDataWithPhotos() {
+        let fetchRequest: NSFetchRequest<PostData> = PostData.fetchRequest()
+        
+        do {
+            let allPostsData = try persistentContainer.viewContext.fetch(fetchRequest)
+            
+            for postData in allPostsData {
+                // Проверяем, есть ли в этом PostData хотя бы один PostItem с фото
+                if let postItems = postData.items as? Set<PostItem>,
+                   postItems.contains(where: { $0.photos != nil }) {
+                    persistentContainer.viewContext.delete(postData)
+                }
+            }
+            
+            print("Удалены все PostData, содержащие посты с фото")
+            saveContext()
+            fetchPosts()
+        } catch {
+            print("Ошибка при удалении PostData: \(error.localizedDescription)")
+        }
+    }
+    
+    private func notifyUpdate() {
+            DispatchQueue.main.async {
+                NotificationCenter.default.post(name: .dataDidUpdate, object: nil)
+            }
+        }
+
 }

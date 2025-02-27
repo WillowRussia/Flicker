@@ -51,6 +51,7 @@ class TabBarView: UITabBarController {
 
     override func viewWillAppear(_ animated: Bool) {
         self.tabBar.isHidden = true
+        self.buildTabBar()
     }
 }
 
@@ -104,5 +105,18 @@ extension TabBarView {
                 self.tabBarView.frame.origin.y = view.frame.height - 100
             }
         }
+    }
+    
+}
+
+extension TabBarView {
+    
+    private func buildTabBar() {
+        let mainScreen = Builder.createMainScreenController()
+        let cameraScreen = Builder.createCameraScreenController()
+        let favoriteScreen = Builder.createFavoriteScreenController()
+
+
+        self.setControllers(controllers: [mainScreen, cameraScreen, favoriteScreen])
     }
 }

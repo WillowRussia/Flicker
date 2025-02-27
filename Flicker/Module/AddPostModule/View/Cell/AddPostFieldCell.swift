@@ -11,7 +11,7 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     
     static var reuseId: String = "AddPostFieldCell"
     
-    var delegate: AddPostViewDelegate?
+    weak var delegate: AddPostViewDelegate?
     
     private lazy var tagField: UITextField = {
         $0.backgroundColor = .appBlack
@@ -27,7 +27,7 @@ class AddPostFieldCell: UICollectionViewCell, CollectionViewCellProtocol {
     private lazy var tagFieldAction = UIAction { [weak self] _ in
         guard let self = self else {return}
         delegate?.addTag(tag: tagField.text)
-        
+        print(1)
         tagField.text = ""
     }
     

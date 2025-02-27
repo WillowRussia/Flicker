@@ -8,6 +8,7 @@
 import UIKit
 
 extension UIImage {
+    
     static func getCoverPhoto(folderId: String, photos: [String]?) -> UIImage? {
         let imagesName = StoreManager.shared.getPhotos(postId: folderId, photos: photos ?? [])
         
@@ -15,5 +16,11 @@ extension UIImage {
             return UIImage(data: photoData)
         }
         return nil
+    }
+    
+    static func getOneImage (folderId: String, photo: String) -> UIImage? {
+        let imageName = StoreManager.shared.getPhoto(postId: folderId, imageName: photo)
+        guard let imageName else { return nil}
+        return UIImage(data: imageName)
     }
 }

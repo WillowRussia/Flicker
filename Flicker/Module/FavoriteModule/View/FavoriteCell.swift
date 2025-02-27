@@ -9,6 +9,7 @@ import UIKit
 
 class FavoriteCell: UICollectionViewCell, CollectionViewCellProtocol {
     static let reuseId = "FavoriteCell"
+    var completion: (() -> ())? // Замыкание для удаление фоварита
     
     lazy var postImage: UIImageView = {
         $0.contentMode = .scaleAspectFill
@@ -20,7 +21,9 @@ class FavoriteCell: UICollectionViewCell, CollectionViewCellProtocol {
         $0.frame = CGRect(x: bounds.width-43, y: 21, width: 25, height: 27  )
         $0.setBackgroundImage(.heartBlack, for: .normal)
         return $0
-    }(UIButton(primaryAction: nil))
+    }(UIButton(primaryAction: UIAction( handler: { [weak self] _ in
+        self?.completion?()
+    })))
     
     lazy var dateView: UIView = {
         $0.frame = CGRect(x: 10, y: bounds.height - 47, width: bounds.width - 20, height: 27)
@@ -50,7 +53,7 @@ class FavoriteCell: UICollectionViewCell, CollectionViewCellProtocol {
     }
     
     func configureCell(item: PostItem) {
-        postImage.image = UIImage(named: item.photos!.first!)
+        postImage.image = .getOneImage(folderId: item.id, photo: item.photos?.first ?? "")
         dateLabel.text = item.date.formatDate(formatType: .full)
     }
     

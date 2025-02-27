@@ -33,7 +33,7 @@ class AddPostPresenter: AddPostPresenterProtocol {
     
     func savePost() {
         
-        let id = UUID() .uuidString
+        let id = UUID().uuidString
         
         photos.forEach{
             let imageData = $0.jpegData(compressionQuality: 1)
@@ -48,7 +48,7 @@ class AddPostPresenter: AddPostPresenterProtocol {
             $0.photos = photos
             $0.comments = []
             $0.tags = self.tags
-            $0.date = Date ()
+            $0.date = Date()
             $0.isFavorite = false
             $0.postDescription = self.postDescription
             return $0

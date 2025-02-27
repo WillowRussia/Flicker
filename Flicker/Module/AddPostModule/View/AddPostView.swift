@@ -48,6 +48,8 @@ class AddPostView: UIViewController, AddPostViewProtocol {
     lazy var saveBtnAction = UIAction { [weak self] _ in
         guard let self = self else {return}
         self.presenter.savePost()
+        NotificationCenter.default.post(name: .dismissCameraView, object: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     lazy var topMenuView: UIView = {
@@ -223,6 +225,7 @@ extension AddPostView: UICollectionViewDataSource {
             return cell
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddPostFieldCell.reuseId, for: indexPath) as! AddPostFieldCell
+            cell.delegate = self
             
             return cell
         }

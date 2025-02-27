@@ -61,6 +61,7 @@ class MainScreenView: UIViewController {
         $0.alwaysBounceVertical = true
         $0.register(MainPostCell.self, forCellWithReuseIdentifier: MainPostCell.reuseId)// Регистрации ячейки
         $0.register(MainPostHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: MainPostHeader.reuseId) // Регистрации заголока секции
+        $0.contentInsetAdjustmentBehavior = .never // Убираем отступ сверху
 
         return $0
 
@@ -74,13 +75,29 @@ class MainScreenView: UIViewController {
         view.addSubview(topMenuView)
         
         topInsets = collectionView.adjustedContentInset.top //Растояние от безопасной области + плюс вставки
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: .dataDidUpdate, object: nil)
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         NotificationCenter.default.post(name: .hideTabBar, object: nil, userInfo: ["isHide" : false]) // Делаем модификацию для показа tabBar
     }
     
+    
+    @objc private func reloadData() {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+                    self.collectionView.collectionViewLayout.invalidateLayout() // Пересчёт макета
+                    self.collectionView.layoutIfNeeded() 
+        }
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .dataDidUpdate, object: nil)
+    }
 
+    
 }
 
 //MARK: Методы для настройки колекции
@@ -108,7 +125,13 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
             let posts = items.sorted {
                 $0.date > $1.date
             }
-            cell.configureCell(item: posts[indexPath.item])
+            let item = posts[indexPath.item]
+            
+            cell.configureCell(item: item)
+            
+            cell.completion = {
+                item.toggleFavorite (isFavorite: item.isFavorite)
+            }
         }
         
         cell.backgroundColor = .gray
@@ -136,6 +159,17 @@ extension MainScreenView: UICollectionViewDataSource, UICollectionViewDelegate, 
         if menuTopPosition < 40, menuTopPosition > 0 {
             self.topMenuView.frame.origin.y = -menuTopPosition
             self.menuAppName.font = UIFont.systemFont(ofSize: 30 - menuTopPosition * 0.2, weight: .bold)
+        }
+    }
+    
+    // Отработка нажатия
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let items = presenter.posts? [indexPath.section].items?.allObjects
+            as? [PostItem]{
+            let item = items[indexPath.item]
+            let detailsVC = Builder.createDetailsController(item: item)
+            
+            navigationController?.pushViewController(detailsVC, animated: true)
         }
     }
 

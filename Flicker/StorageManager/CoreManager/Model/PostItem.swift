@@ -51,5 +51,13 @@ extension PostItem {
 }
 
 extension PostItem : Identifiable {
-
+    
+    func toggleFavorite (isFavorite: Bool){
+        self.isFavorite = !isFavorite
+        do {
+            try managedObjectContext?.save()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
 }
