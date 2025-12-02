@@ -6,6 +6,14 @@
   <img src="Assets/details.png" width="32%" height="auto" alt="">
 </div>
 
+## Tech Stack
 
-### License
+- **Language:** Swift 5
+- **Interface:** UIKit
+- **Architecture:** MVP
+- **Storage:** Core Data & Keychain
+- **Hardware:** AVFoundation (Camera)
+- **Tools:** Xcode
+
+## License
 [Standart MIT license](LICENSE)
