@@ -8,4 +8,4 @@
 
 
 ### License
-[Standart MIT license](https://github.com/WillowRussia/Flicker/blob/main/LICENSE)
+[Standart MIT license](LICENSE)
