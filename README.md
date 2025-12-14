@@ -6,6 +6,14 @@
   <img src="Assets/details.png" width="32%" height="auto" alt="">
 </div>
 
+## Tech Stack
 
-### License
-[Standart MIT license](https://github.com/WillowRussia/Flicker/blob/main/LICENSE)
+- **Language:** Swift 5
+- **Interface:** UIKit
+- **Architecture:** MVP
+- **Storage:** Core Data & Keychain
+- **Hardware:** AVFoundation (Camera)
+- **Tools:** Xcode 16
+
+## License
+[Standart MIT license](LICENSE)
