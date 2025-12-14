@@ -13,7 +13,7 @@
 - **Architecture:** MVP
 - **Storage:** Core Data & Keychain
 - **Hardware:** AVFoundation (Camera)
-- **Tools:** Xcode
+- **Tools:** Xcode 16
 
 ## License
 [Standart MIT license](LICENSE)
